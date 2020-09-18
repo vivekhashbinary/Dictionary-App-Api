@@ -5,7 +5,7 @@ const MeaningSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    definitons: {
+    definitions: {
         type: Array
     },
     examples: {
