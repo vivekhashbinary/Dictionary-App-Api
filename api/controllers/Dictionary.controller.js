@@ -1,7 +1,8 @@
 var Dictionary = require("oxford-dictionary");
+import { json } from 'body-parser';
 import Meaning from '../models/meaning.model'
 
-
+//function to fetch new word from oxfordAPI
 export function getDefinition(req, res) {
     let word = req.params.word
     var config = {
@@ -26,11 +27,7 @@ export function getDefinition(req, res) {
     })
 }
 
-export function testFunction(req, res, next) {
-    console.log(req.params.name)
-    res.send("hello")
-}
-
+//function to post details of word to mongoDB
 export const postWord = async (req, res) => {
     let body = req.body;
     let post = new Meaning(body)
@@ -43,6 +40,7 @@ export const postWord = async (req, res) => {
     })
 }
 
+//function to get all words from mongoDB
 export const getAllWords = async (req, res) => {
     try {
         const words = await Meaning.find();
